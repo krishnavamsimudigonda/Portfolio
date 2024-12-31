@@ -16,7 +16,7 @@ body {
 .hero-header {
     width: 100%;
     min-height: 100vh;
-    background: #222;
+    background: #e5e5e5;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,7 +83,7 @@ nav .navlinks li {
     margin-right: 2.5rem;
 }
 nav .navlinks li a {
-    color: #e5e5e5;
+    color: #007ced;
     font-weight: 500;
     transition: color 0.3s;
 }
@@ -125,7 +125,7 @@ nav .navlinks li a:hover {
     text-align: center;
 }
 .hero-text h5 {
-    color: #e5e5e5;
+    color: #007ced;
     font-size: 14px;
 }
 .hero-text h5 span {
