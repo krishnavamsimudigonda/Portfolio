@@ -1,188 +1,2273 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krishna Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <!----Font awesome cdn  font icon css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>Krishna Mudigonda Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#6366f1',
+                            DEFAULT: '#4f46e5',
+                            dark: '#4338ca'
+                        },
+                        secondary: {
+                            light: '#22d3ee',
+                            DEFAULT: '#06b6d4',
+                            dark: '#0891b2'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+</style>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+        * {
+            font-family: 'Outfit', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .dark {
+            color-scheme: dark;
+        }
+
+        .section {
+            padding-top: 80px;
+            margin-bottom: 40px;
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            border-color: var(--secondary);
+        }
+
+        .project-card:hover .project-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .project-icon {
+            transition: all 0.3s ease;
+        }
+
+        .cert-card {
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .cert-card:hover .cert-icon {
+            transform: rotate(15deg);
+        }
+
+        .cert-icon {
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #4f46e5;
+            z-index: 1;
+        }
+
+        .dark .timeline-item::before {
+            background-color: #6366f1;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 24px;
+            width: 2px;
+            height: calc(100% - 12px);
+            background-color: rgba(79, 70, 229, 0.3);
+        }
+
+        .dark .timeline-item::after {
+            background-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .neural-bg-dark {
+            background-image: radial-gradient(circle at 10% 20%, rgba(79, 70, 229, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 80% 30%, rgba(6, 182, 212, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 40% 70%, rgba(139, 92, 246, 0.05) 0%, transparent 30%),
+                radial-gradient(circle at 70% 90%, rgba(79, 70, 229, 0.05) 0%, transparent 20%);
+            background-size: 100% 100%;
+        }
+
+        .neural-bg-light {
+            background-image: radial-gradient(circle at 10% 20%, rgba(79, 70, 229, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 80% 30%, rgba(6, 182, 212, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 40% 70%, rgba(139, 92, 246, 0.03) 0%, transparent 30%),
+                radial-gradient(circle at 70% 90%, rgba(79, 70, 229, 0.03) 0%, transparent 20%);
+            background-size: 100% 100%;
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .glow {
+            box-shadow: 0 0 10px rgba(79, 70, 229, 0.5);
+            animation: glow 2s infinite alternate;
+        }
+
+        .dark .glow {
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+            animation: glow-dark 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px rgba(79, 70, 229, 0.5);
+            }
+
+            to {
+                box-shadow: 0 0 20px rgba(79, 70, 229, 0.8);
+            }
+        }
+
+        @keyframes glow-dark {
+            from {
+                box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+            }
+
+            to {
+                box-shadow: 0 0 20px rgba(99, 102, 241, 0.8);
+            }
+        }
+
+        .navbar {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #06b6d4;
+            transition: width 0.3s ease;
+        }
+
+        .dark .nav-link::after {
+            background-color: #22d3ee;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: #06b6d4;
+        }
+
+        .dark .nav-link.active {
+            color: #22d3ee;
+        }
+
+        .theme-toggle {
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(45deg);
+        }
+
+        @media print {
+
+            .print-btn,
+            .navbar,
+            .theme-toggle {
+                display: none;
+            }
+
+            .section {
+                padding-top: 20px;
+            }
+
+            body {
+                background-color: white;
+                color: black;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .neural-bg-dark,
+            .neural-bg-light {
+                background: none;
+            }
+        }
+    </style>
+    <style>
+        *,
+        ::before,
+        ::after {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style:
+        }
+
+        ::backdrop {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style:
+        }
+
+        /* ! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com */
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+            border-color: #e5e7eb
+        }
+
+        ::after,
+        ::before {
+            --tw-content: ''
+        }
+
+        :host,
+        html {
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            -moz-tab-size: 4;
+            tab-size: 4;
+            font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        body {
+            margin: 0;
+            line-height: inherit
+        }
+
+        hr {
+            height: 0;
+            color: inherit;
+            border-top-width: 1px
+        }
+
+        abbr:where([title]) {
+            -webkit-text-decoration: underline dotted;
+            text-decoration: underline dotted
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: inherit;
+            font-weight: inherit
+        }
+
+        a {
+            color: inherit;
+            text-decoration: inherit
+        }
+
+        b,
+        strong {
+            font-weight: bolder
+        }
+
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            font-size: 1em
+        }
+
+        small {
+            font-size: 80%
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline
+        }
+
+        sub {
+            bottom: -.25em
+        }
+
+        sup {
+            top: -.5em
+        }
+
+        table {
+            text-indent: 0;
+            border-color: inherit;
+            border-collapse: collapse
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: inherit;
+            font-feature-settings: inherit;
+            font-variation-settings: inherit;
+            font-size: 100%;
+            font-weight: inherit;
+            line-height: inherit;
+            letter-spacing: inherit;
+            color: inherit;
+            margin: 0;
+            padding: 0
+        }
+
+        button,
+        select {
+            text-transform: none
+        }
+
+        button,
+        input:where([type=button]),
+        input:where([type=reset]),
+        input:where([type=submit]) {
+            -webkit-appearance: button;
+            background-color: transparent;
+            background-image: none
+        }
+
+        :-moz-focusring {
+            outline: auto
+        }
+
+        :-moz-ui-invalid {
+            box-shadow: none
+        }
+
+        progress {
+            vertical-align: baseline
+        }
+
+        ::-webkit-inner-spin-button,
+        ::-webkit-outer-spin-button {
+            height: auto
+        }
+
+        [type=search] {
+            -webkit-appearance: textfield;
+            outline-offset: -2px
+        }
+
+        ::-webkit-search-decoration {
+            -webkit-appearance: none
+        }
+
+        ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            font: inherit
+        }
+
+        summary {
+            display: list-item
+        }
+
+        blockquote,
+        dd,
+        dl,
+        figure,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        hr,
+        p,
+        pre {
+            margin: 0
+        }
+
+        fieldset {
+            margin: 0;
+            padding: 0
+        }
+
+        legend {
+            padding: 0
+        }
+
+        menu,
+        ol,
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        dialog {
+            padding: 0
+        }
+
+        textarea {
+            resize: vertical
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            opacity: 1;
+            color: #9ca3af
+        }
+
+        [role=button],
+        button {
+            cursor: pointer
+        }
+
+        :disabled {
+            cursor: default
+        }
+
+        audio,
+        canvas,
+        embed,
+        iframe,
+        img,
+        object,
+        svg,
+        video {
+            display: block;
+            vertical-align: middle
+        }
+
+        img,
+        video {
+            max-width: 100%;
+            height: auto
+        }
+
+        [hidden]:where(:not([hidden=until-found])) {
+            display: none
+        }
+
+        .container {
+            width: 100%
+        }
+
+        @media (min-width: 640px) {
+            .container {
+                max-width: 640px
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 768px
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1024px
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .container {
+                max-width: 1280px
+            }
+        }
+
+        @media (min-width: 1536px) {
+            .container {
+                max-width: 1536px
+            }
+        }
+
+        .fixed {
+            position: fixed
+        }
+
+        .absolute {
+            position: absolute
+        }
+
+        .relative {
+            position: relative
+        }
+
+        .bottom-0 {
+            bottom: 0px
+        }
+
+        .left-0 {
+            left: 0px
+        }
+
+        .top-0 {
+            top: 0px
+        }
+
+        .z-10 {
+            z-index: 10
+        }
+
+        .z-50 {
+            z-index: 50
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem
+        }
+
+        .mr-3 {
+            margin-right: 0.75rem
+        }
+
+        .mr-6 {
+            margin-right: 1.5rem
+        }
+
+        .mt-4 {
+            margin-top: 1rem
+        }
+
+        .mt-6 {
+            margin-top: 1.5rem
+        }
+
+        .mt-1 {
+            margin-top: 0.25rem
+        }
+
+        .mt-2 {
+            margin-top: 0.5rem
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem
+        }
+
+        .ml-5 {
+            margin-left: 1.25rem
+        }
+
+        .mt-12 {
+            margin-top: 3rem
+        }
+
+        .flex {
+            display: flex
+        }
+
+        .grid {
+            display: grid
+        }
+
+        .hidden {
+            display: none
+        }
+
+        .h-10 {
+            height: 2.5rem
+        }
+
+        .h-48 {
+            height: 12rem
+        }
+
+        .h-full {
+            height: 100%
+        }
+
+        .h-12 {
+            height: 3rem
+        }
+
+        .h-6 {
+            height: 1.5rem
+        }
+
+        .h-16 {
+            height: 4rem
+        }
+
+        .h-8 {
+            height: 2rem
+        }
+
+        .w-10 {
+            width: 2.5rem
+        }
+
+        .w-48 {
+            width: 12rem
+        }
+
+        .w-full {
+            width: 100%
+        }
+
+        .w-12 {
+            width: 3rem
+        }
+
+        .w-6 {
+            width: 1.5rem
+        }
+
+        .w-16 {
+            width: 4rem
+        }
+
+        .w-8 {
+            width: 2rem
+        }
+
+        .max-w-5xl {
+            max-width: 64rem
+        }
+
+        .list-outside {
+            list-style-position: outside
+        }
+
+        .list-disc {
+            list-style-type: disc
+        }
+
+        .grid-cols-1 {
+            grid-template-columns: repeat(1, minmax(0, 1fr))
+        }
+
+        .flex-col {
+            flex-direction: column
+        }
+
+        .flex-wrap {
+            flex-wrap: wrap
+        }
+
+        .items-start {
+            align-items: flex-start
+        }
+
+        .items-end {
+            align-items: flex-end
+        }
+
+        .items-center {
+            align-items: center
+        }
+
+        .justify-center {
+            justify-content: center
+        }
+
+        .justify-between {
+            justify-content: space-between
+        }
+
+        .gap-1 {
+            gap: 0.25rem
+        }
+
+        .gap-2 {
+            gap: 0.5rem
+        }
+
+        .gap-3 {
+            gap: 0.75rem
+        }
+
+        .gap-4 {
+            gap: 1rem
+        }
+
+        .gap-8 {
+            gap: 2rem
+        }
+
+        .gap-6 {
+            gap: 1.5rem
+        }
+
+        .gap-x-8 {
+            column-gap: 2rem
+        }
+
+        .gap-y-10 {
+            row-gap: 2.5rem
+        }
+
+        .space-y-6> :not([hidden])~ :not([hidden]) {
+            --tw-space-y-reverse: 0;
+            margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+            margin-bottom: calc(1.5rem * var(--tw-space-y-reverse))
+        }
+
+        .space-y-2> :not([hidden])~ :not([hidden]) {
+            --tw-space-y-reverse: 0;
+            margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+            margin-bottom: calc(0.5rem * var(--tw-space-y-reverse))
+        }
+
+        .space-y-8> :not([hidden])~ :not([hidden]) {
+            --tw-space-y-reverse: 0;
+            margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+            margin-bottom: calc(2rem * var(--tw-space-y-reverse))
+        }
+
+        .space-y-4> :not([hidden])~ :not([hidden]) {
+            --tw-space-y-reverse: 0;
+            margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+            margin-bottom: calc(1rem * var(--tw-space-y-reverse))
+        }
+
+        .overflow-hidden {
+            overflow: hidden
+        }
+
+        .rounded-2xl {
+            border-radius: 1rem
+        }
+
+        .rounded-full {
+            border-radius: 9999px
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem
+        }
+
+        .rounded-xl {
+            border-radius: 0.75rem
+        }
+
+        .rounded {
+            border-radius: 0.25rem
+        }
+
+        .border {
+            border-width: 1px
+        }
+
+        .border-transparent {
+            border-color: transparent
+        }
+
+        .bg-gray-50 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-indigo-100 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(224 231 255 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-indigo-500 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(99 102 241 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-white {
+            --tw-bg-opacity: 1;
+            background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-white\/20 {
+            background-color: rgb(255 255 255 / 0.2)
+        }
+
+        .bg-white\/80 {
+            background-color: rgb(255 255 255 / 0.8)
+        }
+
+        .bg-slate-100 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(241 245 249 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-cyan-100 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(207 250 254 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-purple-100 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(243 232 255 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-blue-100 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(219 234 254 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-green-100 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(220 252 231 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-red-100 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(254 226 226 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-amber-100 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(254 243 199 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-gradient-to-r {
+            background-image: linear-gradient(to right, var(--tw-gradient-stops))
+        }
+
+        .from-indigo-500 {
+            --tw-gradient-from: #6366f1 var(--tw-gradient-from-position);
+            --tw-gradient-to: rgb(99 102 241 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+        }
+
+        .to-cyan-400 {
+            --tw-gradient-to: #22d3ee var(--tw-gradient-to-position)
+        }
+
+        .p-1 {
+            padding: 0.25rem
+        }
+
+        .p-8 {
+            padding: 2rem
+        }
+
+        .p-6 {
+            padding: 1.5rem
+        }
+
+        .p-4 {
+            padding: 1rem
+        }
+
+        .p-5 {
+            padding: 1.25rem
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem
+        }
+
+        .px-8 {
+            padding-left: 2rem;
+            padding-right: 2rem
+        }
+
+        .py-16 {
+            padding-top: 4rem;
+            padding-bottom: 4rem
+        }
+
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem
+        }
+
+        .py-3 {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem
+        }
+
+        .py-8 {
+            padding-top: 2rem;
+            padding-bottom: 2rem
+        }
+
+        .px-3 {
+            padding-left: 0.75rem;
+            padding-right: 0.75rem
+        }
+
+        .py-1 {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem
+        }
+
+        .px-2 {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem
+        }
+
+        .pb-8 {
+            padding-bottom: 2rem
+        }
+
+        .text-center {
+            text-align: center
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+            line-height: 2rem
+        }
+
+        .text-5xl {
+            font-size: 3rem;
+            line-height: 1
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+            line-height: 1.25rem
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.75rem
+        }
+
+        .text-xs {
+            font-size: 0.75rem;
+            line-height: 1rem
+        }
+
+        .text-lg {
+            font-size: 1.125rem;
+            line-height: 1.75rem
+        }
+
+        .font-bold {
+            font-weight: 700
+        }
+
+        .font-medium {
+            font-weight: 500
+        }
+
+        .font-semibold {
+            font-weight: 600
+        }
+
+        .italic {
+            font-style: italic
+        }
+
+        .leading-relaxed {
+            line-height: 1.625
+        }
+
+        .text-cyan-100 {
+            --tw-text-opacity: 1;
+            color: rgb(207 250 254 / var(--tw-text-opacity, 1))
+        }
+
+        .text-gray-900 {
+            --tw-text-opacity: 1;
+            color: rgb(17 24 39 / var(--tw-text-opacity, 1))
+        }
+
+        .text-indigo-600 {
+            --tw-text-opacity: 1;
+            color: rgb(79 70 229 / var(--tw-text-opacity, 1))
+        }
+
+        .text-white {
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity, 1))
+        }
+
+        .text-yellow-500 {
+            --tw-text-opacity: 1;
+            color: rgb(234 179 8 / var(--tw-text-opacity, 1))
+        }
+
+        .text-slate-700 {
+            --tw-text-opacity: 1;
+            color: rgb(51 65 85 / var(--tw-text-opacity, 1))
+        }
+
+        .text-slate-600 {
+            --tw-text-opacity: 1;
+            color: rgb(71 85 105 / var(--tw-text-opacity, 1))
+        }
+
+        .text-cyan-600 {
+            --tw-text-opacity: 1;
+            color: rgb(8 145 178 / var(--tw-text-opacity, 1))
+        }
+
+        .text-purple-600 {
+            --tw-text-opacity: 1;
+            color: rgb(147 51 234 / var(--tw-text-opacity, 1))
+        }
+
+        .text-blue-600 {
+            --tw-text-opacity: 1;
+            color: rgb(37 99 235 / var(--tw-text-opacity, 1))
+        }
+
+        .text-green-600 {
+            --tw-text-opacity: 1;
+            color: rgb(22 163 74 / var(--tw-text-opacity, 1))
+        }
+
+        .text-red-600 {
+            --tw-text-opacity: 1;
+            color: rgb(220 38 38 / var(--tw-text-opacity, 1))
+        }
+
+        .text-amber-600 {
+            --tw-text-opacity: 1;
+            color: rgb(217 119 6 / var(--tw-text-opacity, 1))
+        }
+
+        .opacity-20 {
+            opacity: 0.2
+        }
+
+        .shadow-lg {
+            --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+        }
+
+        .shadow-xl {
+            --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+        }
+
+        .shadow-sm {
+            --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+        }
+
+        .backdrop-blur-sm {
+            --tw-backdrop-blur: blur(4px);
+            -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+            backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)
+        }
+
+        .transition-all {
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms
+        }
+
+        .duration-300 {
+            transition-duration: 300ms
+        }
+
+        .hover\:border-indigo-200:hover {
+            --tw-border-opacity: 1;
+            border-color: rgb(199 210 254 / var(--tw-border-opacity, 1))
+        }
+
+        .hover\:border-indigo-900:hover {
+            --tw-border-opacity: 1;
+            border-color: rgb(49 46 129 / var(--tw-border-opacity, 1))
+        }
+
+        .hover\:bg-indigo-700:hover {
+            --tw-bg-opacity: 1;
+            background-color: rgb(67 56 202 / var(--tw-bg-opacity, 1))
+        }
+
+        .hover\:text-cyan-600:hover {
+            --tw-text-opacity: 1;
+            color: rgb(8 145 178 / var(--tw-text-opacity, 1))
+        }
+
+        .hover\:underline:hover {
+            -webkit-text-decoration-line: underline;
+            text-decoration-line: underline
+        }
+
+        .hover\:shadow-md:hover {
+            --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+        }
+
+        .dark\:bg-indigo-600:is(.dark *) {
+            --tw-bg-opacity: 1;
+            background-color: rgb(79 70 229 / var(--tw-bg-opacity, 1))
+        }
+
+        .dark\:bg-indigo-600\/20:is(.dark *) {
+            background-color: rgb(79 70 229 / 0.2)
+        }
+
+        .dark\:bg-slate-800:is(.dark *) {
+            --tw-bg-opacity: 1;
+            background-color: rgb(30 41 59 / var(--tw-bg-opacity, 1))
+        }
+
+        .dark\:bg-slate-900:is(.dark *) {
+            --tw-bg-opacity: 1;
+            background-color: rgb(15 23 42 / var(--tw-bg-opacity, 1))
+        }
+
+        .dark\:bg-slate-900\/80:is(.dark *) {
+            background-color: rgb(15 23 42 / 0.8)
+        }
+
+        .dark\:bg-indigo-900\/50:is(.dark *) {
+            background-color: rgb(49 46 129 / 0.5)
+        }
+
+        .dark\:bg-slate-700\/30:is(.dark *) {
+            background-color: rgb(51 65 85 / 0.3)
+        }
+
+        .dark\:bg-cyan-900\/50:is(.dark *) {
+            background-color: rgb(22 78 99 / 0.5)
+        }
+
+        .dark\:bg-purple-900\/50:is(.dark *) {
+            background-color: rgb(88 28 135 / 0.5)
+        }
+
+        .dark\:bg-blue-900\/50:is(.dark *) {
+            background-color: rgb(30 58 138 / 0.5)
+        }
+
+        .dark\:bg-green-900\/50:is(.dark *) {
+            background-color: rgb(20 83 45 / 0.5)
+        }
+
+        .dark\:bg-red-900\/50:is(.dark *) {
+            background-color: rgb(127 29 29 / 0.5)
+        }
+
+        .dark\:bg-amber-900\/50:is(.dark *) {
+            background-color: rgb(120 53 15 / 0.5)
+        }
+
+        .dark\:bg-gradient-to-r:is(.dark *) {
+            background-image: linear-gradient(to right, var(--tw-gradient-stops))
+        }
+
+        .dark\:from-indigo-600:is(.dark *) {
+            --tw-gradient-from: #4f46e5 var(--tw-gradient-from-position);
+            --tw-gradient-to: rgb(79 70 229 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+        }
+
+        .dark\:to-cyan-500:is(.dark *) {
+            --tw-gradient-to: #06b6d4 var(--tw-gradient-to-position)
+        }
+
+        .dark\:text-indigo-400:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(129 140 248 / var(--tw-text-opacity, 1))
+        }
+
+        .dark\:text-white:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity, 1))
+        }
+
+        .dark\:text-yellow-300:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(253 224 71 / var(--tw-text-opacity, 1))
+        }
+
+        .dark\:text-slate-300:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(203 213 225 / var(--tw-text-opacity, 1))
+        }
+
+        .dark\:text-indigo-300:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(165 180 252 / var(--tw-text-opacity, 1))
+        }
+
+        .dark\:text-slate-400:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(148 163 184 / var(--tw-text-opacity, 1))
+        }
+
+        .dark\:text-cyan-300:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(103 232 249 / var(--tw-text-opacity, 1))
+        }
+
+        .dark\:text-purple-300:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(216 180 254 / var(--tw-text-opacity, 1))
+        }
+
+        .dark\:text-blue-300:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(147 197 253 / var(--tw-text-opacity, 1))
+        }
+
+        .dark\:text-blue-400:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(96 165 250 / var(--tw-text-opacity, 1))
+        }
+
+        .dark\:text-green-300:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(134 239 172 / var(--tw-text-opacity, 1))
+        }
+
+        .dark\:text-green-400:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(74 222 128 / var(--tw-text-opacity, 1))
+        }
+
+        .dark\:text-red-300:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(252 165 165 / var(--tw-text-opacity, 1))
+        }
+
+        .dark\:text-red-400:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(248 113 113 / var(--tw-text-opacity, 1))
+        }
+
+        .dark\:text-amber-400:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(251 191 36 / var(--tw-text-opacity, 1))
+        }
+
+        .dark\:text-cyan-400:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(34 211 238 / var(--tw-text-opacity, 1))
+        }
+
+        .dark\:text-purple-400:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(192 132 252 / var(--tw-text-opacity, 1))
+        }
+
+        .dark\:hover\:border-indigo-900:hover:is(.dark *) {
+            --tw-border-opacity: 1;
+            border-color: rgb(49 46 129 / var(--tw-border-opacity, 1))
+        }
+
+        .dark\:hover\:text-cyan-400:hover:is(.dark *) {
+            --tw-text-opacity: 1;
+            color: rgb(34 211 238 / var(--tw-text-opacity, 1))
+        }
+
+        @media (min-width: 768px) {
+            .md\:mt-0 {
+                margin-top: 0px
+            }
+
+            .md\:flex {
+                display: flex
+            }
+
+            .md\:hidden {
+                display: none
+            }
+
+            .md\:w-auto {
+                width: auto
+            }
+
+            .md\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr))
+            }
+
+            .md\:flex-row {
+                flex-direction: row
+            }
+
+            .md\:items-center {
+                align-items: center
+            }
+
+            .md\:justify-start {
+                justify-content: flex-start
+            }
+
+            .md\:gap-2 {
+                gap: 0.5rem
+            }
+
+            .md\:text-left {
+                text-align: left
+            }
+        }
+    </style>
 </head>
-<body>
-    <div class="hero-header">
-        <div class="wrapper">
-            <header>
-                <div class="logo">
-                    <div class="logo-text"></div>
-                </div>
-                <nav>
-                    <div class="togglebtn">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <ul class="navlinks">
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#experience">Experience</a></li>
-                        <li><a href="#extracurricular">Extra-Curriculars</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-            </header>
-            <div class="container">
-                <div class="hero-pic">
-                    <img src="https://github.com/krishnavamsimudigonda/Portfolio/blob/main/main_photo.jpg?raw=true " alt="profile pic">
-                </div>
-                <div class="hero-text">
-                    <h1>Krishna Vamsi Mudigonda</h1>
-                    <h5>I'm a <span class="input"></span></h5>
-                    
 
-                    <div class="btn-group">
-                        <a href="https://docs.google.com/document/d/1gG89lJ6QYKT5UtvWxq10tB_lKvoGxZp8/edit?usp=sharing&ouid=112520143335721635571&rtpof=true&sd=true" class="btn active">Resume</a>
-                        <a href="#contact" class="btn">Contact</a>
+<body class="dark:bg-slate-900 dark:text-white bg-gray-50 text-gray-900 neural-bg-dark dark:neural-bg-dark neural-bg-light">
+    <!-- Navigation Bar -->
+    <nav class="navbar fixed top-0 left-0 w-full dark:bg-slate-900/80 bg-white/80 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-10 h-10 rounded-full dark:bg-indigo-600/20 bg-indigo-100 backdrop-blur-sm flex items-center justify-center mr-3 glow">
+                    <i class="fas fa-code dark:text-indigo-400 text-indigo-600"></i>
+                </div>
+                <span class="text-xl font-bold dark:text-white text-gray-900">Krishna Vamsi</span>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button id="themeToggle" class="theme-toggle w-10 h-10 rounded-full dark:bg-indigo-600/20 bg-indigo-100 flex items-center justify-center">
+                    <i id="themeIcon" class="fas dark:text-yellow-300 text-yellow-500 fa-moon"></i>
+                </button>
+
+                <button id="menuToggle" class="md:hidden dark:text-white text-gray-900">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <div id="navMenu" class="hidden md:flex flex-col md:flex-row w-full md:w-auto mt-4 md:mt-0 gap-1 md:gap-2">
+                <a href="#about" class="nav-link px-4 py-2 dark:text-white text-gray-900 hover:text-cyan-600 dark:hover:text-cyan-400 active">About</a>
+                <a href="#education" class="nav-link px-4 py-2 dark:text-white text-gray-900 hover:text-cyan-600 dark:hover:text-cyan-400">Education</a>
+                <a href="#experience" class="nav-link px-4 py-2 dark:text-white text-gray-900 hover:text-cyan-600 dark:hover:text-cyan-400">Experience</a>
+                <a href="#projects" class="nav-link px-4 py-2 dark:text-white text-gray-900 hover:text-cyan-600 dark:hover:text-cyan-400">Projects</a>
+                <a href="#skills" class="nav-link px-4 py-2 dark:text-white text-gray-900 hover:text-cyan-600 dark:hover:text-cyan-400">Skills</a>
+                <a href="#certifications" class="nav-link px-4 py-2 dark:text-white text-gray-900 hover:text-cyan-600 dark:hover:text-cyan-400">Certifications</a>
+                <a href="#contact" class="nav-link px-4 py-2 dark:text-white text-gray-900 hover:text-cyan-600 dark:hover:text-cyan-400">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+   <a href="https://docs.google.com/document/d/1gG89lJ6QYKT5UtvWxq10tB_lKvoGxZp8/edit?usp=sharing&ouid=112520143335721635571&rtpof=true&sd=true" 
+   target="_blank" 
+   class="print-btn dark:bg-indigo-600 bg-indigo-500 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg shadow-lg transition-all duration-300 flex items-center gap-2">
+    <i class="fas fa-file-alt"></i> View My Resume
+</a>
+
+
+    <div class="container mx-auto px-4 py-8 max-w-5xl">
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="dark:bg-slate-800 bg-white rounded-2xl shadow-xl overflow-hidden mb-8 transition-all duration-300">
+                <div class="relative dark:bg-gradient-to-r dark:from-indigo-600 dark:to-cyan-500 bg-gradient-to-r from-indigo-500 to-cyan-400 px-8 py-16 text-white">
+                    <div class="absolute top-0 left-0 w-full h-full opacity-20">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="absolute bottom-0">
+                            <path fill="currentColor" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,181.3C960,181,1056,203,1152,202.7C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                        </svg>
+                    </div>
+                    <div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
+                        <div class="text-center md:text-left">
+                            <h1 class="text-5xl font-bold mb-4">Krishna Vamsi Mudigonda</h1>
+                            <h2 class="text-2xl font-medium text-cyan-100">Aspiring Data Scientist and Machine Learning Enthusiast</h2>
+                            <div class="mt-6 flex flex-wrap gap-3 justify-center md:justify-start">
+                                <span class="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm">Python</span>
+                                <span class="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm">Data Analysis</span>
+                                <span class="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm">Machine Learning</span>
+                                <span class="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm">Power BI</span>
+                            </div>
+                        </div>
+                       <div class="relative group w-48 h-48 rounded-full p-1 overflow-hidden backdrop-blur-sm shadow-xl transition-transform duration-500 hover:scale-105 cursor-pointer">
+    <!-- Profile Image -->
+    <img src="images/main_photo.jpg" 
+         alt="Krishna Vamsi Mudigonda"
+         class="w-full h-full object-cover rounded-full border-[3px] border-white dark:border-slate-900 transition-all duration-500 ease-in-out group-hover:brightness-110 group-hover:contrast-110 group-hover:scale-105">
+
+    <!-- Animated Glowing Ring -->
+    <div class="absolute -inset-1 rounded-full z-[-1] bg-gradient-to-r from-cyan-400 via-indigo-500 to-blue-500 blur-2xl opacity-25 group-hover:opacity-60 transition-all duration-700 ease-in-out animate-pulse"></div>
+</div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="mr-6">
+                            <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_3vbOcw.json" background="transparent" speed="1" style="width: 80px; height: 80px;" loop="" autoplay=""></lottie-player>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold dark:text-indigo-400 text-indigo-600">About Me</h2>
+                        </div>
                     </div>
 
-                    <div class="social">
-                        <a href="https://github.com/krishnavamsimudigonda" target="_blank"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/krishnavamsimudigonda/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <p class="dark:text-slate-300 text-slate-700 leading-relaxed">
+                        Hi, I'm Krishna Vamsi Mudigonda, a final-year Computer Science student with a strong foundation in data analytics, machine learning and full-stack development. I thrive at the intersection of data and software, where I can build smart, scalable tools that not only function well but also solve real-world problems.
+Over the last few years, I’ve worked on projects involving credit card fraud detection using SMOTE and stacking, Dashboards.
+ My technical skills span across Python, Pandas, scikit-learn, Tensor FLow, Power Bi, and SQL, and I enjoy turning complex datasets into actionable insights and intelligent features.
+Beyond just building solutions, I’ve actively contributed to research, co-authored a paper on deep learning model benchmarking, and explored ways to make AI-driven systems more explainable and accurate. 
+I’ve also completed internships as a Salesforce developer, where I gained experience with CRM workflows, APIs, and real-time data handling.
+I’m passionate about continuously learning, solving meaningful problems with clean code, and collaborating with teams that care about both performance and user experience.
+I'm now actively seeking roles in Data Science, Machine Learning Engineering, Software Development where I can put my experience and creativity to work.
+
+
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section">
+            <div class="dark:bg-slate-800 bg-white rounded-2xl shadow-xl overflow-hidden mb-8 transition-all duration-300">
+                <div class="p-8">
+                    <div class="flex items-center mb-8">
+                        <div class="mr-6">
+                            <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_w51pcehl.json" background="transparent" speed="1" style="width: 80px; height: 80px;" loop="" autoplay=""></lottie-player>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold dark:text-indigo-400 text-indigo-600">Education</h2>
+                            <p class="dark:text-slate-400 text-slate-600">Academic background </p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Education 1 -->
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center dark:bg-slate-700/30 bg-slate-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-transparent hover:border-indigo-900 dark:hover:border-indigo-900 hover:border-indigo-200">
+                            <div>
+                                <h3 class="text-xl font-semibold">Bachelor of Technology in Computer Science</h3>
+                                <div class="dark:text-indigo-400 text-indigo-600 font-medium">SRM Institute of Science and Technology</div>
+                                <div class="dark:text-slate-400 text-slate-600 mt-1">Chennai, Tamil Nadu</div>
+                                <div class="dark:text-slate-400 text-slate-600 mt-1">CGPA: 8.94</div>
+                            </div>
+                            <div class="mt-2 md:mt-0 flex flex-col items-end">
+                                <div class="dark:text-slate-400 text-slate-600">Aug 2022 - Present</div>
+                                <div class="mt-2 px-3 py-1 dark:bg-indigo-900/50 bg-indigo-100 dark:text-indigo-300 text-indigo-600 rounded-full text-sm">Current</div>
+                            </div>
+                        </div>
+
+                        <!-- Education 2 -->
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center dark:bg-slate-700/30 bg-slate-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-transparent hover:border-indigo-900 dark:hover:border-indigo-900 hover:border-indigo-200">
+                            <div>
+                                <h3 class="text-xl font-semibold">Board of Intermediate</h3>
+                                <div class="dark:text-indigo-400 text-indigo-600 font-medium">Narayana Junior College</div>
+                                <div class="dark:text-slate-400 text-slate-600 mt-1">Guntur, Andhra Pradesh</div>
+                                <div class="dark:text-slate-400 text-slate-600 mt-1">Percentage: 72.1%</div>
+                            </div>
+                            <div class="mt-2 md:mt-0 flex flex-col items-end">
+                                <div class="dark:text-slate-400 text-slate-600">Jun 2020 - Mar 2022</div>
+                            </div>
+                        </div>
+
+                        <!-- Education 3 -->
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center dark:bg-slate-700/30 bg-slate-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-transparent hover:border-indigo-900 dark:hover:border-indigo-900 hover:border-indigo-200">
+                            <div>
+                                <h3 class="text-xl font-semibold">Board of Secondary Education (CBSE)</h3>
+                                <div class="dark:text-indigo-400 text-indigo-600 font-medium">Bhashyam Blooms</div>
+                                <div class="dark:text-slate-400 text-slate-600 mt-1">Guntur, Andhra Pradesh</div>
+                                <div class="dark:text-slate-400 text-slate-600 mt-1">Percentage: 71.6%</div>
+                            </div>
+                            <div class="mt-2 md:mt-0 flex flex-col items-end">
+                                <div class="dark:text-slate-400 text-slate-600">Jun 2019 - May 2020</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <div class="dark:bg-slate-800 bg-white rounded-2xl shadow-xl overflow-hidden mb-8 transition-all duration-300">
+                <div class="p-8">
+                    <div class="flex items-center mb-8">
+                        <div class="mr-6">
+                            <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_wd1udlcz.json" background="transparent" speed="1" style="width: 80px; height: 80px;" loop="" autoplay=""></lottie-player>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold dark:text-indigo-400 text-indigo-600">Experience</h2>
+                            <p class="dark:text-slate-400 text-slate-600">Professional work experience and internships</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-8">
+                        <!-- Internship 1 -->
+                        <div class="timeline-item pb-8">
+                            <div class="dark:bg-slate-700/30 bg-slate-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-transparent hover:border-indigo-900 dark:hover:border-indigo-900 hover:border-indigo-200">
+                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                    <h3 class="text-xl font-semibold">Salesforce Developer</h3>
+                                    <div class="flex items-center gap-2 dark:text-indigo-400 text-indigo-600">
+                                        <i class="fas fa-building"></i>
+                                        <span class="font-medium">Smart Internz</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                                    <div class="dark:text-slate-400 text-slate-600 italic">Remote</div>
+                                    <div class="flex items-center gap-2 dark:text-slate-400 text-slate-600">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <span>Nov 2023 - Jan 2024</span>
+                                    </div>
+                                </div>
+                                <ul class="list-disc list-outside ml-5 space-y-2 dark:text-slate-300 text-slate-700">
+                                    <li>Designed and implemented data schemas in Salesforce CRM to organize and manage user travel mile card information efficiently.</li>
+                                    <li>Developed and deployed 10+ Lightning Web Components and web services, contributing to improved platform functionality.</li>
+                                    <li>Conducted data-driven business analysis to enhance decision-making by 20%, leveraging CRM insights and user behavior patterns.</li>
+                                    <li>Integrated third-party services, resolved technical issues, and delivered customized UI layouts.</li>
+                                </ul>
+                                
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 dark:bg-indigo-900/50 bg-indigo-100 dark:text-indigo-300 text-indigo-600 rounded-full text-sm">Salesforce</span>
+                                    <span class="px-3 py-1 dark:bg-indigo-900/50 bg-indigo-100 dark:text-indigo-300 text-indigo-600 rounded-full text-sm">Lightning Web Components</span>
+                                    <span class="px-3 py-1 dark:bg-indigo-900/50 bg-indigo-100 dark:text-indigo-300 text-indigo-600 rounded-full text-sm">CRM</span>
+                                    <span class="px-3 py-1 dark:bg-indigo-900/50 bg-indigo-100 dark:text-indigo-300 text-indigo-600 rounded-full text-sm">Data Analysis</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Extra Curricular Activities -->
+                    <div class="mt-12">
+                        <div class="flex items-center mb-8">
+                            <div class="mr-6">
+                                <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_svy4ivvy.json" background="transparent" speed="1" style="width: 80px; height: 80px;" loop="" autoplay=""></lottie-player>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold dark:text-indigo-400 text-indigo-600">Extracurricular Activities</h2>
+                                <p class="dark:text-slate-400 text-slate-600">Leadership and volunteer experience</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <!-- Activity 1 -->
+                            <div class="timeline-item pb-8">
+                                <div class="dark:bg-slate-700/30 bg-slate-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-transparent hover:border-indigo-900 dark:hover:border-indigo-900 hover:border-indigo-200">
+                                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                        <h3 class="text-xl font-semibold">Technical Team Lead</h3>
+                                        <div class="flex items-center gap-2 dark:text-indigo-400 text-indigo-600">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"></path>
+                                            </svg>
+                                            <span class="font-medium">Logic Play Club, SRM Institute of Science and Technology</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                                        <div class="dark:text-slate-400 text-slate-600 italic">Chennai, Tamil Nadu</div>
+                                    </div>
+                                    <ul class="list-disc list-outside ml-5 space-y-2 dark:text-slate-300 text-slate-700">
+                                        <li>Organized and led 3+ workshops and 2 ideathons on Data Analysis, Data visualization and Web-Development for 100+ participants</li>
+                                        <li>Increased participant engagement by 75% through innovative delivery methods</li>
+                                    </ul>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 dark:bg-cyan-900/50 bg-cyan-100 dark:text-cyan-300 text-cyan-600 rounded-full text-sm">Leadership</span>
+                                        <span class="px-3 py-1 dark:bg-cyan-900/50 bg-cyan-100 dark:text-cyan-300 text-cyan-600 rounded-full text-sm">Team Work</span>
+                                        <span class="px-3 py-1 dark:bg-cyan-900/50 bg-cyan-100 dark:text-cyan-300 text-cyan-600 rounded-full text-sm">Communication</span>
+                                        <span class="px-3 py-1 dark:bg-cyan-900/50 bg-cyan-100 dark:text-cyan-300 text-cyan-600 rounded-full text-sm">Time Management</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Activity 2 -->
+                            <div class="timeline-item pb-8">
+                                <div class="dark:bg-slate-700/30 bg-slate-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-transparent hover:border-indigo-900 dark:hover:border-indigo-900 hover:border-indigo-200">
+                                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                        <h3 class="text-xl font-semibold">Instructor</h3>
+                                        <div class="flex items-center gap-2 dark:text-indigo-400 text-indigo-600">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                                <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z"></path>
+                                                <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Z"></path>
+                                            </svg>
+                                            <span class="font-medium">Zilla Parishad High School Kothapet</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                                        <div class="dark:text-slate-400 text-slate-600 italic">Hyderabad</div>
+                                    </div>
+                                    <ul class="list-disc list-outside ml-5 space-y-2 dark:text-slate-300 text-slate-700">
+                                        <li>Conducted a 4-week training program on computer fundamentals and practical applications of AI for 30+ students</li>
+                                    </ul>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 dark:bg-purple-900/50 bg-purple-100 dark:text-purple-300 text-purple-600 rounded-full text-sm">AI Education</span>
+                                        <span class="px-3 py-1 dark:bg-purple-900/50 bg-purple-100 dark:text-purple-300 text-purple-600 rounded-full text-sm">Mentoring</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="dark:bg-slate-800 bg-white rounded-2xl shadow-xl overflow-hidden mb-8 transition-all duration-300">
+                <div class="p-8">
+                    <div class="flex items-center mb-8">
+                        <div class="mr-6">
+                            <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_kkflmtur.json" background="transparent" speed="1" style="width: 80px; height: 80px;" loop="" autoplay=""></lottie-player>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold dark:text-indigo-400 text-indigo-600">Projects</h2>
+                            <p class="dark:text-slate-400 text-slate-600">Technical projects and applications</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Project 1 -->
+                        <div class="project-card dark:bg-slate-700/30 bg-slate-100 rounded-xl p-6 shadow-sm">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="project-icon w-12 h-12 rounded-full dark:bg-indigo-900/50 bg-indigo-100 flex items-center justify-center dark:text-indigo-400 text-indigo-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                        <path d="M16.5 7.5h-9v9h9v-9z"></path>
+                                        <path fill-rule="evenodd" d="M8.25 2.25A.75.75 0 019 3v.75h2.25V3a.75.75 0 011.5 0v.75H15V3a.75.75 0 011.5 0v.75h.75a3 3 0 013 3v.75H21A.75.75 0 0121 9h-.75v2.25H21a.75.75 0 010 1.5h-.75V15H21a.75.75 0 010 1.5h-.75v.75a3 3 0 01-3 3h-.75V21a.75.75 0 01-1.5 0v-.75h-2.25V21a.75.75 0 01-1.5 0v-.75H9V21a.75.75 0 01-1.5 0v-.75h-.75a3 3 0 01-3-3v-.75H3A.75.75 0 013 15h.75v-2.25H3a.75.75 0 010-1.5h.75V9H3a.75.75 0 010-1.5h.75v-.75a3 3 0 013-3h.75V3a.75.75 0 01.75-.75zM6 6.75A.75.75 0 016.75 6h10.5a.75.75 0 01.75.75v10.5a.75.75 0 01-.75.75H6.75a.75.75 0 01-.75-.75V6.75z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-semibold">AI Data Analysis Tool</h3>
+                            </div>
+                            <div class="mb-4 flex flex-wrap gap-2">
+                                <span class="px-2 py-1 dark:bg-purple-900/50 bg-purple-100 dark:text-purple-300 text-purple-600 rounded text-xs">Streamlit</span>
+                                <span class="px-2 py-1 dark:bg-purple-900/50 bg-purple-100 dark:text-purple-300 text-purple-600 rounded text-xs">PandasAI</span>
+                                <span class="px-2 py-1 dark:bg-purple-900/50 bg-purple-100 dark:text-purple-300 text-purple-600 rounded text-xs">OpenAI API</span>
+                                <span class="px-2 py-1 dark:bg-purple-900/50 bg-purple-100 dark:text-purple-300 text-purple-600 rounded text-xs">Together AI</span>
+                                <span class="px-2 py-1 dark:bg-purple-900/50 bg-purple-100 dark:text-purple-300 text-purple-600 rounded text-xs">Python</span>
+                            </div>
+                            <ul class="list-disc list-outside ml-5 dark:text-slate-300 text-slate-700 text-sm">
+                                <li>Built a web-based data analysis tool using Streamlit and PandasAI that allows users to explore CSV and Excel files through natural language queries.</li>
+                                <li>Integrated Together AI and OpenAI APIs to interpret user prompts, generate visual insights, and extract key patterns from tabular datasets.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="project-card dark:bg-slate-700/30 bg-slate-100 rounded-xl p-6 shadow-sm">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="project-icon w-12 h-12 rounded-full dark:bg-green-900/50 bg-green-100 flex items-center justify-center dark:text-green-400 text-green-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                        <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-semibold">Retail Aura</h3>
+                            </div>
+                            <div class="mb-4 flex flex-wrap gap-2">
+                                <span class="px-2 py-1 dark:bg-green-900/50 bg-green-100 dark:text-green-300 text-green-600 rounded text-xs">Gemini LLM API</span>
+                                <span class="px-2 py-1 dark:bg-green-900/50 bg-green-100 dark:text-green-300 text-green-600 rounded text-xs">Kotlin</span>
+                                <span class="px-2 py-1 dark:bg-green-900/50 bg-green-100 dark:text-green-300 text-green-600 rounded text-xs">Firebase</span>
+                            </div>
+                            <ul class="list-disc list-outside ml-5 dark:text-slate-300 text-slate-700 text-sm">
+                                <li>Developed a real-time customer support chatbot using the Gemini API to deliver personalized recommendations and improve user engagement.</li>
+                                <li>Collaborated with the team to integrate Razorpay for efficient checkout and implemented Firestore with Firebase Authentication.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="project-card dark:bg-slate-700/30 bg-slate-100 rounded-xl p-6 shadow-sm">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="project-icon w-12 h-12 rounded-full dark:bg-blue-900/50 bg-blue-100 flex items-center justify-center dark:text-blue-400 text-blue-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                        <path fill-rule="evenodd" d="M3 6a3 3 0 013-3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm4.5 7.5a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zm3.75-1.5a.75.75 0 00-1.5 0v4.5a.75.75 0 001.5 0V12zm2.25-3a.75.75 0 01.75.75v6.75a.75.75 0 01-1.5 0V9.75A.75.75 0 0113.5 9zm3.75-1.5a.75.75 0 00-1.5 0v9a.75.75 0 001.5 0v-9z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-semibold">Blinkit Sales Analytics Dashboard</h3>
+                            </div>
+                            <div class="mb-4 flex flex-wrap gap-2">
+                                <span class="px-2 py-1 dark:bg-blue-900/50 bg-blue-100 dark:text-blue-300 text-blue-600 rounded text-xs">Power BI</span>
+                                <span class="px-2 py-1 dark:bg-blue-900/50 bg-blue-100 dark:text-blue-300 text-blue-600 rounded text-xs">Kaggle</span>
+                                <span class="px-2 py-1 dark:bg-blue-900/50 bg-blue-100 dark:text-blue-300 text-blue-600 rounded text-xs">Data Analysis</span>
+                            </div>
+                            <ul class="list-disc list-outside ml-5 dark:text-slate-300 text-slate-700 text-sm">
+                                <li>Built a Power BI dashboard highlighting sales KPIs, outlet sizes, product categories, and ratings to support performance tracking.</li>
+                                <li>Applied geospatial analysis on outlet locations to identify regional trends and guide data-driven sales strategy.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Project 4 -->
+                        <div class="project-card dark:bg-slate-700/30 bg-slate-100 rounded-xl p-6 shadow-sm">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="project-icon w-12 h-12 rounded-full dark:bg-red-900/50 bg-red-100 flex items-center justify-center dark:text-red-400 text-red-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                        <path fill-rule="evenodd" d="M12 1.5a5.25 5.25 0 00-5.25 5.25v3a3 3 0 00-3 3v6.75a3 3 0 003 3h10.5a3 3 0 003-3v-6.75a3 3 0 00-3-3v-3c0-2.9-2.35-5.25-5.25-5.25zm3.75 8.25v-3a3.75 3.75 0 10-7.5 0v3h7.5z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-semibold">XRANSM – Credit Card Fraud Detection</h3>
+                            </div>
+                            <div class="mb-4 flex flex-wrap gap-2">
+                                <span class="px-2 py-1 dark:bg-red-900/50 bg-red-100 dark:text-red-300 text-red-600 rounded text-xs">Python</span>
+                                <span class="px-2 py-1 dark:bg-red-900/50 bg-red-100 dark:text-red-300 text-red-600 rounded text-xs">Scikit-learn</span>
+                                <span class="px-2 py-1 dark:bg-red-900/50 bg-red-100 dark:text-red-300 text-red-600 rounded text-xs">XGBoost</span>
+                                <span class="px-2 py-1 dark:bg-red-900/50 bg-red-100 dark:text-red-300 text-red-600 rounded text-xs">TensorFlow</span>
+                            </div>
+                            <ul class="list-disc list-outside ml-5 dark:text-slate-300 text-slate-700 text-sm">
+                                <li>Developed a stacking ensemble model on credit card transaction dataset using SMOTE and feature scaling, achieving 98% accuracy and high F1-score for imbalanced fraud detection.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="dark:bg-slate-800 bg-white rounded-2xl shadow-xl overflow-hidden mb-8 transition-all duration-300">
+                <div class="p-8">
+                    <div class="flex items-center mb-8">
+                        <div class="mr-6">
+                            <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_6e0qqtpa.json" background="transparent" speed="1" style="width: 80px; height: 80px;" loop="" autoplay=""></lottie-player>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold dark:text-indigo-400 text-indigo-600">Skills</h2>
+                            <p class="dark:text-slate-400 text-slate-600">Technical abilities and competencies</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
+                        <div class="dark:bg-slate-700/30 bg-slate-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-full dark:bg-indigo-900/50 bg-indigo-100 flex items-center justify-center dark:text-indigo-400 text-indigo-600">
+                                    <i class="fas fa-code text-lg"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold">Programming Languages</h3>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-3">
+                                    <i class="fab fa-python dark:text-indigo-400 text-indigo-600 w-6 text-center"></i>
+                                    <span>Python</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-code dark:text-indigo-400 text-indigo-600 w-6 text-center"></i>
+                                    <span>C++</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-code dark:text-indigo-400 text-indigo-600 w-6 text-center"></i>
+                                    <span>C</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dark:bg-slate-700/30 bg-slate-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-full dark:bg-cyan-900/50 bg-cyan-100 flex items-center justify-center dark:text-cyan-400 text-cyan-600">
+                                    <i class="fas fa-globe text-lg"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold">Web Technologies</h3>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-3">
+                                    <i class="fab fa-html5 dark:text-cyan-400 text-cyan-600 w-6 text-center"></i>
+                                    <span>HTML</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fab fa-css3-alt dark:text-cyan-400 text-cyan-600 w-6 text-center"></i>
+                                    <span>CSS</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dark:bg-slate-700/30 bg-slate-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-full dark:bg-green-900/50 bg-green-100 flex items-center justify-center dark:text-green-400 text-green-600">
+                                    <i class="fas fa-database text-lg"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold">Database</h3>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-database dark:text-green-400 text-green-600 w-6 text-center"></i>
+                                    <span>MySQL</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dark:bg-slate-700/30 bg-slate-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-full dark:bg-purple-900/50 bg-purple-100 flex items-center justify-center dark:text-purple-400 text-purple-600">
+                                    <i class="fas fa-chart-bar text-lg"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold">Data Analysis</h3>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-chart-line dark:text-purple-400 text-purple-600 w-6 text-center"></i>
+                                    <span>Power BI</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-calculator dark:text-purple-400 text-purple-600 w-6 text-center"></i>
+                                    <span>NumPy</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-table dark:text-purple-400 text-purple-600 w-6 text-center"></i>
+                                    <span>Pandas</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dark:bg-slate-700/30 bg-slate-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-full dark:bg-amber-900/50 bg-amber-100 flex items-center justify-center dark:text-amber-400 text-amber-600">
+                                    <i class="fas fa-file-alt text-lg"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold">MS Office</h3>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-file-excel dark:text-amber-400 text-amber-600 w-6 text-center"></i>
+                                    <span>MS Excel</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-file-word dark:text-amber-400 text-amber-600 w-6 text-center"></i>
+                                    <span>MS Word</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-file-powerpoint dark:text-amber-400 text-amber-600 w-6 text-center"></i>
+                                    <span>PowerPoint</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dark:bg-slate-700/30 bg-slate-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-full dark:bg-red-900/50 bg-red-100 flex items-center justify-center dark:text-red-400 text-red-600">
+                                    <i class="fas fa-brain text-lg"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold">Machine Learning</h3>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-cogs dark:text-red-400 text-red-600 w-6 text-center"></i>
+                                    <span>Scikit-learn</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-network-wired dark:text-red-400 text-red-600 w-6 text-center"></i>
+                                    <span>TensorFlow</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="section">
+            <div class="dark:bg-slate-800 bg-white rounded-2xl shadow-xl overflow-hidden mb-8 transition-all duration-300">
+                <div class="p-8">
+                    <div class="flex items-center mb-8">
+                        <div class="mr-6">
+                            <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_touohxv0.json" background="transparent" speed="1" style="width: 80px; height: 80px;" loop="" autoplay=""></lottie-player>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold dark:text-indigo-400 text-indigo-600">Certifications</h2>
+                            <p class="dark:text-slate-400 text-slate-600">Professional certifications and courses</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="cert-card dark:bg-slate-700/30 bg-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-4">
+                            <div class="cert-icon dark:bg-indigo-900/50 bg-indigo-100 p-4 rounded-full">
+                                <i class="fab fa-github dark:text-indigo-400 text-indigo-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">GitHub Foundations</h3>
+                                <div class="dark:text-slate-400 text-slate-600 text-sm">GitHub • March 2025</div>
+                            </div>
+                        </div>
+
+                        <div class="cert-card dark:bg-slate-700/30 bg-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-4">
+                            <div class="cert-icon dark:bg-indigo-900/50 bg-indigo-100 p-4 rounded-full">
+                                <i class="fas fa-cloud dark:text-indigo-400 text-indigo-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Oracle Cloud Infrastructure Foundations Associate</h3>
+                                <div class="dark:text-slate-400 text-slate-600 text-sm">Oracle • February 2025</div>
+                            </div>
+                        </div>
+
+                        <div class="cert-card dark:bg-slate-700/30 bg-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-4">
+                            <div class="cert-icon dark:bg-indigo-900/50 bg-indigo-100 p-4 rounded-full">
+                                <i class="fas fa-brain dark:text-indigo-400 text-indigo-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Introduction to Machine Learning</h3>
+                                <div class="dark:text-slate-400 text-slate-600 text-sm">NPTEL (IIT Kharagpur) • October 2024</div>
+                            </div>
+                        </div>
+
+                        <div class="cert-card dark:bg-slate-700/30 bg-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-4">
+                            <div class="cert-icon dark:bg-indigo-900/50 bg-indigo-100 p-4 rounded-full">
+                                <i class="fas fa-database dark:text-indigo-400 text-indigo-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Fundamentals of SQL</h3>
+                                <div class="dark:text-slate-400 text-slate-600 text-sm">HackerRank • August 2024</div>
+                            </div>
+                        </div>
+
+                        <div class="cert-card dark:bg-slate-700/30 bg-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-4">
+                            <div class="cert-icon dark:bg-indigo-900/50 bg-indigo-100 p-4 rounded-full">
+                                <i class="fab fa-python dark:text-indigo-400 text-indigo-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Python for Data Science, AI &amp; Development</h3>
+                                <div class="dark:text-slate-400 text-slate-600 text-sm">Coursera • July 2024</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="dark:bg-slate-800 bg-white rounded-2xl shadow-xl overflow-hidden mb-8 transition-all duration-300">
+                <div class="p-8">
+                    <div class="flex items-center mb-8">
+                        <div class="mr-6">
+                            <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_u8o7BL.json" background="transparent" speed="1" style="width: 80px; height: 80px;" loop="" autoplay=""></lottie-player>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold dark:text-indigo-400 text-indigo-600">Contact Me</h2>
+                            <p class="dark:text-slate-400 text-slate-600">Get in touch with me</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="dark:bg-slate-700/30 bg-slate-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center">
+                            <div class="w-16 h-16 rounded-full dark:bg-indigo-900/50 bg-indigo-100 flex items-center justify-center mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 dark:text-indigo-400 text-indigo-600">
+                                    <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"></path>
+                                    <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2">Email</h3>
+                            <a href="mailto:krishnamudigonda10@gmail.com" class="dark:text-indigo-400 text-indigo-600 hover:underline">krishnamudigonda10@gmail.com</a>
+                        </div>
+
+                        <div class="dark:bg-slate-700/30 bg-slate-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center">
+                            <div class="w-16 h-16 rounded-full dark:bg-cyan-900/50 bg-cyan-100 flex items-center justify-center mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 dark:text-cyan-400 text-cyan-600">
+                                    <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2">Phone</h3>
+                            <a href="tel:+919550495522" class="dark:text-cyan-400 text-cyan-600 hover:underline">+91-9550495522</a>
+                        </div>
+
+                        <!-- LinkedIn Card -->
+<div class="dark:bg-slate-700/30 bg-slate-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center">
+    <div class="w-16 h-16 rounded-full dark:bg-purple-900/50 bg-purple-100 flex items-center justify-center mb-4">
+        <i class="fab fa-linkedin-in w-8 h-8 dark:text-purple-400 text-purple-600 flex items-center justify-center text-2xl"></i>
+    </div>  
+    <h3 class="text-lg font-semibold mb-2">LinkedIn</h3>
+    <a href="https://www.linkedin.com/in/krishnavamsimudigonda/" target="_blank" class="dark:text-purple-400 text-purple-600 hover:underline">
+        Connect on LinkedIn
+    </a>
+</div>
+
+<!-- GitHub Card -->
+<div class="dark:bg-slate-700/30 bg-slate-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center">
+    <div class="w-16 h-16 rounded-full dark:bg-green-900/50 bg-green-100 flex items-center justify-center mb-4">
+        <i class="fab fa-github w-8 h-8 dark:text-green-400 text-green-600 flex items-center justify-center text-2xl"></i>
+    </div>
+    <h3 class="text-lg font-semibold mb-2">GitHub</h3>
+    <a href="https://github.com/krishnavamsimudigonda" target="_blank" class="dark:text-green-400 text-green-600 hover:underline">
+        View my projects
+    </a>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <!-- About Section -->
-    <section id="about" style="padding: 20px;">
-        <h2>About Me</h2>
-        <p>I am currently pursuing my Bachelor’s degree in Computer Science at SRM University, Chennai, with a deep passion for data science and machine learning.
-           My hands-on experience includes working as a Salesforce Developer Intern at Smart Internz, where I contributed to building and optimizing Salesforce solutions through my skills in customization and data base management. 
-           Along with my academic journey, I actively participated in extracurricular activities at Logic Play Club, where I collaborate on innovative projects and technical problems. 
-           These experiences have allowed me to strengthen my skills in Python, C++ while also developing a strong foundation in analytics and machine learning.
-           I enjoy blending technology with creativity, constantly seeking opportunities to grow and apply my knowledge in real-world applications.</p>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" style="padding: 20px;">
-        <h2>Skills</h2>
-        <ul>
-            <li>Programming Languages: C++, Python</li>
-            <li>Web Development: HTML, CSS, JavaScript</li>
-            <li>Data Analytics: Pandas, NumPy, Power BI</li>
-            <li>Machine Learning: Scikit-learn</li>
-            <li>Database: MySQL</li>
-            <li>Version Control: Git, GitHub</li>
-        </ul>
-    </section>
-    <!-- certification Section -->
-    <section id="certifications" style="padding: 20px;">
-        <h2>Certifications</h2>
-        <ul>
-            <li>
-                <strong>Oracle Cloud Infrastructure Certified Foundations Associate by Oracle </strong>
-                <br><a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=017F9F0467F3BB5FA1F9A5A46F0B6D329B67126EF1E0B488376A5BEC2F584236" target="_blank" class="btn">View Certificate</a>
-            </li>
-            <li>
-                <strong>Fundamentals of SQL from HackerRank</strong>
-                <br><a href="https://www.hackerrank.com/certificates/3c3d8144ab28" target="_blank" class="btn">View Certificate</a>
-            </li>
-            <li>
-                <strong>Introduction to Machine learning From NPTEL (IIT Kharagpur)</strong>
-                <br><a href="https://archive.nptel.ac.in/content/noc/NOC24/SEM2/Ecertificates/106/noc24-cs81/Course/NPTEL24CS81S43310599102688668.pdf" target="_blank" class="btn">View Certificate</a>
-            </li>
-            <li>
-                <strong>Introduction to Data Science by Cisco</strong>
-                <br><a href="https://www.credly.com/badges/3f7fd97e-560c-4812-9a06-9c15d6d3fe7b/linked_in_profile" target="_blank" class="btn">View Certificate</a>
-            </li>
-            <li>
-                <strong>Python for Data Science, AI & Development by Coursera</strong>
-                <br><a href="https://www.coursera.org/account/accomplishments/verify/HQRUG5SXWQGF" target="_blank" class="btn">View Certificate</a>
-            </li>
-            <li>
-                <strong>Fundamentals of SQL from HackerRank</strong>
-                <br><a href="https://www.hackerrank.com/certificates/3c3d8144ab28" target="_blank" class="btn">View Certificate</a>
-            </li>
-        </ul>
-    </section>
-    
-<!-- Experience Section -->
-<section id="experience" style="padding: 20px;">
-    <h2>Internships</h2>
-    <ul>
-        <li><strong>Salesforce Developer Intern at Smart Internz</strong>
-            <p>
-                Conceptualized and created a schema from user’s travel mile cards data using Salesforce CRM platform<br>
-                Developed 10+ Lightening Web Components, Web Services, Led business analysis from user data points to enhance data-driven decision-making by 20% <br>
-                Integrated third-party platforms, troubleshoot technical issues<br>
-                Delivered customize visual layouts to provide users with the most relevant experience possible
-
-            </p>
-        </li>
-    </ul>
-</section>
-
-<!-- Extra-Curricular Activities Section -->
-<section id="extracurricular" style="padding: 20px;">
-    <h2>Extra-Curricular Activities</h2>
-    <ul>
-        <li><strong>Technical Team Member at Logic Play Club</strong>
-            <p>
-                Organized and led 3+ workshops and 2 ideathons on Data Analysis, Data visualization and Web-Development for 100+ participants, increased participant engagement by 75% through innovative delivery methods<br>
-                Designed interactive dashboards for real-time monitoring of project progress and event metrics.
-            </p>
-        </li>
-        <li><strong>Instructor at ZPHS Kothapet</strong>
-            <p>
-                Conducted a 4-week training program on computer fundamentals and practical applications of AI for 30+ students
-            </p>
-        </li>
-    </ul>
-</section>
-
-
-    <!-- Projects Section -->
-    <section id="projects" style="padding: 20px;">
-        <h2>Projects</h2>
-        <ul>
-            <li><strong>Blinkit Sales Analytics Dashboard :</strong> Developed a Power BI dashboard for Blinkit, visualizing key metrics.<br> <a href="https://github.com/krishnavamsimudigonda/Blinkit-Sales-Dashboard" target="_blank">View Project</a></li>
-            <li><strong>Retail Aura:</strong> Developed an application to assist retail customers by providing customized product recommendations through a chatbot and facilitating faster checkouts.<br> <a href="" target="_blank">View Project</a></li>
-            <li><strong>Portfolio Website:</strong> Designed a responsive portfolio website using HTML, CSS, and JavaScript.<br> <a href="https://github.com/krishnavamsimudigonda/Portfolio" target="_blank">View Project</a></li>
-            <li><strong>Diabetes Prediction:</strong> Designed a machine learning model for diabetes prediction using the Pima Indian Diabetes dataset, optimizing prediction accuracy.<br> <a href="https://github.com/krishnavamsimudigonda/Diabeties-Prediction" target="_blank">View Project</a></li>
-        </ul>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" style="padding: 20px;">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:krishnamudigonda10@gmail.com">krishnamudigonda10@gmail.com</a></p>
-        <p><b>Phone:</b> +91-9550495522</p>
-        <div class="social">
-            <a href="https://github.com/krishnavamsimudigonda" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-            <a href="https://www.linkedin.com/in/krishnavamsimudigonda/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-        </div>
-    </section>
-
-    <!-- Typed.js for typing text effect -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
     <script>
-        // Responsive Navbar Toggle
-        var togglebtn = document.querySelector(".togglebtn");
-        var nav = document.querySelector(".navlinks");
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const html = document.documentElement;
 
-        togglebtn.addEventListener("click", function() {
-            nav.classList.toggle("open");
+        // Check for saved theme preference or use system preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            html.classList.toggle('dark', savedTheme === 'dark');
+            updateThemeIcon(savedTheme === 'dark');
+        } else {
+            // Use system preference
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            html.classList.toggle('dark', prefersDark);
+            updateThemeIcon(prefersDark);
+        }
+
+        // Toggle theme function
+        themeToggle.addEventListener('click', () => {
+            const isDark = html.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateThemeIcon(isDark);
         });
 
-        // Typed.js Effect
-        var typed = new Typed(".input", {
-            strings: ["Data Analyst", "Machine Learning Enthusiast"],
-            typeSpeed: 30,
-            backSpeed: 35,
-            loop: true
+        function updateThemeIcon(isDark) {
+            if (isDark) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('hidden');
+        });
+
+        // Active navigation link
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
         });
     </script>
+    <script>
+        (function() {
+            function c() {
+                var b = a.contentDocument || a.contentWindow.document;
+                if (b) {
+                    var d = b.createElement('script');
+                    d.innerHTML = "window.__CF$cv$params={r:'94bda232e1589374',t:'MTc0OTI3MjkyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+                    b.getElementsByTagName('head')[0].appendChild(d)
+                }
+            }
+            if (document.body) {
+                var a = document.createElement('iframe');
+                a.height = 1;
+                a.width = 1;
+                a.style.position = 'absolute';
+                a.style.top = 0;
+                a.style.left = 0;
+                a.style.border = 'none';
+                a.style.visibility = 'hidden';
+                document.body.appendChild(a);
+                if ('loading' !== document.readyState) c();
+                else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c);
+                else {
+                    var e = document.onreadystatechange || function() {};
+                    document.onreadystatechange = function(b) {
+                        e(b);
+                        'loading' !== document.readyState && (document.onreadystatechange = e, c())
+                    }
+                }
+            }
+        })();
+    </script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
+
 </body>
+
 </html>
