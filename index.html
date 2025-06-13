@@ -1510,37 +1510,55 @@
 
 <body class="dark:bg-slate-900 dark:text-white bg-gray-50 text-gray-900 neural-bg-dark dark:neural-bg-dark neural-bg-light">
     <!-- Navigation Bar -->
-    <nav class="navbar fixed top-0 left-0 w-full dark:bg-slate-900/80 bg-white/80 z-50 shadow-lg">
-        <div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
-            <div class="flex items-center">
-                <div class="w-10 h-10 rounded-full dark:bg-indigo-600/20 bg-indigo-100 backdrop-blur-sm flex items-center justify-center mr-3 glow">
+    <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-md shadow-md dark:bg-slate-900/80 bg-white/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between relative">
+            
+            <!-- Logo & Name -->
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full dark:bg-indigo-600/20 bg-indigo-100 flex items-center justify-center glow">
                     <i class="fas fa-code dark:text-indigo-400 text-indigo-600"></i>
                 </div>
-                <span class="text-xl font-bold dark:text-white text-gray-900">Krishna Vamsi</span>
+                <span class="text-2xl font-bold tracking-wide dark:text-white text-gray-900">
+                    Krishna Vamsi
+                </span>
             </div>
 
-            <div class="flex items-center gap-4">
-                <button id="themeToggle" class="theme-toggle w-10 h-10 rounded-full dark:bg-indigo-600/20 bg-indigo-100 flex items-center justify-center">
-                    <i id="themeIcon" class="fas dark:text-yellow-300 text-yellow-500 fa-moon"></i>
+            <!-- Navigation Links -->
+            <div id="navMenu" class="hidden md:flex space-x-6">
+                <a href="#about" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-cyan-600 dark:hover:text-cyan-400 transition">About</a>
+                <a href="#education" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-cyan-600 dark:hover:text-cyan-400 transition">Education</a>
+                <a href="#experience" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-cyan-600 dark:hover:text-cyan-400 transition">Experience</a>
+                <a href="#projects" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-cyan-600 dark:hover:text-cyan-400 transition">Projects</a>
+                <a href="#skills" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-cyan-600 dark:hover:text-cyan-400 transition">Skills</a>
+                <a href="#certifications" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-cyan-600 dark:hover:text-cyan-400 transition">Certifications</a>
+                <a href="#contact" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-cyan-600 dark:hover:text-cyan-400 transition">Contact</a>
+            </div>
+
+            <!-- Theme Toggle & Mobile Menu -->
+            <div class="flex items-center space-x-4">
+                <!-- Theme Toggle Button -->
+                <button id="themeToggle" class="w-10 h-10 rounded-full dark:bg-indigo-600/20 bg-indigo-100 flex items-center justify-center transition">
+                    <i id="themeIcon" class="fas fa-moon dark:text-yellow-300 text-yellow-500"></i>
                 </button>
 
-                <button id="menuToggle" class="md:hidden dark:text-white text-gray-900">
+                <!-- Mobile Menu Toggle Button -->
+                <button id="menuToggle" class="md:hidden text-xl dark:text-white text-gray-900">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
+        </div>
 
-            <div id="navMenu" class="hidden md:flex flex-col md:flex-row w-full md:w-auto mt-4 md:mt-0 gap-1 md:gap-2">
-                <a href="#about" class="nav-link px-4 py-2 dark:text-white text-gray-900 hover:text-cyan-600 dark:hover:text-cyan-400 active">About</a>
-                <a href="#education" class="nav-link px-4 py-2 dark:text-white text-gray-900 hover:text-cyan-600 dark:hover:text-cyan-400">Education</a>
-                <a href="#experience" class="nav-link px-4 py-2 dark:text-white text-gray-900 hover:text-cyan-600 dark:hover:text-cyan-400">Experience</a>
-                <a href="#projects" class="nav-link px-4 py-2 dark:text-white text-gray-900 hover:text-cyan-600 dark:hover:text-cyan-400">Projects</a>
-                <a href="#skills" class="nav-link px-4 py-2 dark:text-white text-gray-900 hover:text-cyan-600 dark:hover:text-cyan-400">Skills</a>
-                <a href="#certifications" class="nav-link px-4 py-2 dark:text-white text-gray-900 hover:text-cyan-600 dark:hover:text-cyan-400">Certifications</a>
-                <a href="#contact" class="nav-link px-4 py-2 dark:text-white text-gray-900 hover:text-cyan-600 dark:hover:text-cyan-400">Contact</a>
-            </div>
+        <!-- Mobile Nav -->
+        <div id="mobileNav" class="md:hidden hidden px-4 pb-4 space-y-2">
+            <a href="#about" class="block py-2 px-3 rounded hover:bg-cyan-100 dark:hover:bg-slate-800 transition">About</a>
+            <a href="#education" class="block py-2 px-3 rounded hover:bg-cyan-100 dark:hover:bg-slate-800 transition">Education</a>
+            <a href="#experience" class="block py-2 px-3 rounded hover:bg-cyan-100 dark:hover:bg-slate-800 transition">Experience</a>
+            <a href="#projects" class="block py-2 px-3 rounded hover:bg-cyan-100 dark:hover:bg-slate-800 transition">Projects</a>
+            <a href="#skills" class="block py-2 px-3 rounded hover:bg-cyan-100 dark:hover:bg-slate-800 transition">Skills</a>
+            <a href="#certifications" class="block py-2 px-3 rounded hover:bg-cyan-100 dark:hover:bg-slate-800 transition">Certifications</a>
+            <a href="#contact" class="block py-2 px-3 rounded hover:bg-cyan-100 dark:hover:bg-slate-800 transition">Contact</a>
         </div>
     </nav>
-
    <a href="https://docs.google.com/document/d/1gG89lJ6QYKT5UtvWxq10tB_lKvoGxZp8/edit?usp=sharing&ouid=112520143335721635571&rtpof=true&sd=true" 
    target="_blank" 
    class="print-btn dark:bg-indigo-600 bg-indigo-500 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg shadow-lg transition-all duration-300 flex items-center gap-2">
